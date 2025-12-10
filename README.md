@@ -10,14 +10,7 @@ saída de dados.
 🎥 Demonstração em Vídeo
 
 
-<div align="center">
-  <iframe width="560" height="315" 
-          src="https://www.youtube.com/embed/uBxwbRlgwrw" 
-          title="Demonstração do Projeto" 
-          frameborder="0" 
-          allowfullscreen>
-  </iframe>
-</div>
+https://github.com/user-attachments/assets/fbe021f7-4350-4690-9fea-145bc4000589
 
 
 ------------------------------------------------------------------------
