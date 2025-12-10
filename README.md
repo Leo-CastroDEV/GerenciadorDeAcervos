@@ -1,136 +1,120 @@
-📚 Gerenciador de Acervos – Sistema em C
+# 📚 Gerenciador de Acervos -- Sistema em C
 
-Um sistema simples e funcional para cadastro, consulta, ordenação e gerenciamento de livros em um acervo.
-Desenvolvido em linguagem C, utilizando manipulação de arquivos, ordenação com qsort, vetores de structs e boas práticas de entrada e saída de dados.
+Um sistema simples e funcional para cadastro, consulta, ordenação e
+gerenciamento de livros em um acervo.\
+Desenvolvido em linguagem **C**, utilizando manipulação de arquivos,
+ordenação com `qsort`, vetores de structs e boas práticas de entrada e
+saída de dados.
 
-🚀 Funcionalidades
+------------------------------------------------------------------------
+🎥 Demonstração em Vídeo
 
-O sistema permite:
 
-✔ Cadastrar livros com: título, autor, área, ano e editora
-✔ Gerar código automaticamente para cada livro
-✔ Listar todos os livros do acervo
-✔ Pesquisar livro por código
-✔ Ordenar livros por ano de publicação (ordem crescente)
-✔ Salvar automaticamente os dados em arquivo binário
-✔ Carregar dados ao iniciar o programa
-✔ Excluir todo o acervo (memória + arquivo)
+<div align="center">
+  <iframe width="560" height="315" 
+          src="https://youtu.be/uBxwbRlgwrw" 
+          title="Demonstração do Projeto" 
+          frameborder="0" 
+          allowfullscreen>
+  </iframe>
+</div>
 
-🧠 Estrutura do Projeto
-📂 Arquivos Principais
-main.c
-acervo_biblioteca.dat   → gerado automaticamente
+------------------------------------------------------------------------
+## 🚀 Funcionalidades
 
-🧱 Estrutura do Livro
+✔ **Cadastrar livros** com título, autor, área, ano e editora\
+✔ **Gerar código automaticamente** para cada livro\
+✔ **Listar todos os livros do acervo**\
+✔ **Pesquisar livro por código**\
+✔ **Ordenar livros por ano de publicação**\
+✔ **Salvar automaticamente** os dados em arquivo binário\
+✔ **Carregar dados ao iniciar o programa**\
+✔ **Excluir todo o acervo**
 
-Cada livro é armazenado usando a struct:
+------------------------------------------------------------------------
 
+## 🧠 Estrutura do Projeto
+
+### 📂 Arquivos
+
+    main.c
+    acervo_biblioteca.dat   → criado automaticamente
+
+### 🧱 Struct principal
+
+``` c
 typedef struct {
-int codigo;
-char titulo[TAM_TITULO];
-char autor[TAM_AUTOR];
-char area[TAM_AREA];
-int ano;
-char editora[TAM_EDITORA];
+    int codigo;
+    char titulo[100];
+    char autor[50];
+    char area[50];
+    int ano;
+    char editora[50];
 } Livro;
+```
 
-🔧 Como Compilar
+------------------------------------------------------------------------
 
-No terminal, execute:
+## 🔧 Como Compilar
 
-✔ Windows (MinGW)
-gcc main.c -o acervo.exe
+### Windows
 
-✔ Linux / MacOS
-gcc main.c -o acervo
+    gcc main.c -o acervo.exe
 
-▶️ Como Executar
-Windows:
-acervo.exe
+### Linux / MacOS
 
-Linux / MacOS:
-./acervo
+    gcc main.c -o acervo
 
-🖥️ Menu do Sistema
+------------------------------------------------------------------------
 
-O programa exibe:
+## ▶️ Como Executar
 
-========== Menu Principal ==========
+### Windows
 
-1. Cadastrar novo livro
-2. Imprimir todos os livros
-3. Pesquisar livro por codigo
-4. Ordenar livros por ano de publicacao
-5. Excluir TODO o acervo
-0. Sair do programa
+    acervo.exe
 
-💾 Persistência de Dados
+### Linux / MacOS
 
-Todos os dados são armazenados em:
+    ./acervo
 
-acervo_biblioteca.dat
+------------------------------------------------------------------------
 
+## 🖥️ Menu do Sistema
 
-Sempre que o usuário:
+    1. Cadastrar novo livro
+    2. Imprimir todos os livros
+    3. Pesquisar livro por codigo
+    4. Ordenar livros por ano
+    5. Excluir acervo
+    0. Sair
 
-Inicia o programa → dados são carregados automaticamente
+------------------------------------------------------------------------
 
-Sai do programa → dados são salvos
+## 💾 Persistência de Dados
 
-Exclui o acervo → arquivo é sobrescrito com zero registros
+O programa salva automaticamente as informações no arquivo:
 
-🧮 Ordenação por Ano
+    acervo_biblioteca.dat
 
-A ordenação usa qsort() com comparação crescente:
+------------------------------------------------------------------------
 
-int comparar_ano(const void *a, const void *b) {
-Livro *A = (Livro *)a;
-Livro *B = (Livro *)b;
-return A->ano - B->ano;
-}
+## 📌 Melhorias Futuras
 
-🧽 Tratamento de Erros e Entradas
+-   [ ] Editar livro\
+-   [ ] Excluir livro específico\
+-   [ ] Exportar dados para CSV\
+-   [ ] Busca por título ou autor\
+-   [ ] Ordenação por título ou área
 
-O projeto usa:
+------------------------------------------------------------------------
 
-✔ limpar_buffer() para evitar bugs com scanf e fgets
-✔ verificação de entradas inválidas
-✔ prevenção de overflow de strings
-✔ validação de ano
+## 👨‍💻 Autor
 
-📌 Limitações Atuais
+**Leonardo Castro**\
+Estudante de ADS e desenvolvedor iniciante.
 
-Máximo de 20 livros (definido por #define MAX_LIVROS 20)
+------------------------------------------------------------------------
 
-Sem edição de livros (apenas cadastro e consulta)
+## 📜 Licença
 
-Ordenação apenas por ano
-
-Pesquisas apenas pelo código
-
-🛠️ Melhorias Futuras (Sugestões)
-
-Se quiser evoluir o projeto, aqui vão ótimas ideias:
-
-Editar informações de um livro
-
-Excluir um único livro
-
-Aumentar o limite de acervo
-
-Exportar dados para .txt ou .csv
-
-Pesquisa por título ou autor
-
-Ordenação por título, autor ou área
-
-Interface gráfica (GTK, Win32 ou ncurses)
-
-👨‍💻 Autor
-
-Leonardo Castro
-Estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor apaixonado por tecnologia.
-
-📜 Licença
-
-Este projeto é de uso livre para estudo, modificação e aprendizado.
+Uso livre para fins educacionais.
